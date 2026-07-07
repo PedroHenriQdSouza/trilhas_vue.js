@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue Component</title>
+</head>
+<body>
+    <div id="app"><!-- Definindo as props de cada componente. Props são como parâmetros que serão utilizados ao definir a -->
+        <button-component text="Clique Aqui" color="red" font="white"></button-component>
+        <button-component text="Enviar" color="green" font="white"></button-component>
+        <button-component text="Cancelar" color="blue" font="white"></button-component>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.7.14/dist/vue.js"></script>
+    <script>
+        /* Componentes são como objetos em javascript, servindo para separar um código em varias partes,
+        cada uma sendo responsável por uma função. cada vez que um componente é utilizado, ele gera uma nova instância */
+        // Definindo um componente reutilizável chamado 'button-component'
+        Vue.component('button-component', {
+            props: ['text', 'color', 'font'], // Propriedade 'text', color e font que será passada para o componente
+            template: '<button :style="{ backgroundColor: color, color: font}">{{ text }}</button>' // Template HTML do componente
+        });
+
+        // Instância principal Vue
+        new Vue({
+            el: '#app'
+        });
+    </script>
+</body>
+</html>

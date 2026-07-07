@@ -3,27 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vue Component</title>
+    
+    <title>Curso Vue js - Components</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css">
 </head>
 <body>
     <div id="app">
-        <button-component text="Clique Aqui"></button-component>
-        <button-component text="Enviar"></button-component>
-        <button-component text="Cancelar"></button-component>
+        <h1>{{ Título}}</h1>
+        <menu-bar></menu-bar>
+        <menu-bar></menu-bar>
+        <menu-bar></menu-bar><!-- utilização do mesmo componente  3 vezes-->
     </div>
+
+    <template id="menu"><!-- criação do componente -->
+        <ul>
+            <li>Item 1</li>
+            <li>Item 2</li>
+            <li>Item 3</li>
+        </ul>
+    </template>
 
     <script src="https://cdn.jsdelivr.net/npm/vue@2.7.14/dist/vue.js"></script>
     <script>
-        // Definindo um componente reutilizável chamado 'button-component'
-        Vue.component('button-component', {
-            props: ['text'], // Propriedade 'text' que será passada para o componente
-            template: '<button>{{ text }}</button>' // Template HTML do componente
+        Vue.component('menu-bar', {/* nome do componente */
+            template: '#menu'/* chamada do id do componente criado */
         });
-
-        // Instância principal Vue
-        new Vue({
-            el: '#app'
+        var app = new Vue({
+            el: '#app',
+            data: {
+                Título: 'Vue js' /* titulo com interpolação de varáveis */
+            }
         });
-    </script>
+        </script>
 </body>
 </html>
