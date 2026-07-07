@@ -24,7 +24,9 @@
 
 <body>
     <div id="app">
-        <form @submit.prevent="enviarFormulario"><!-- prevent serve para impedir o funcionamento padrão de alguma função, por exemplo um botão de submit que deveria enviar o fomulário não vai funcionar -->
+        <form @submit.prevent="enviarFormulario">
+            <!-- prevent serve para impedir o funcionamento padrão de alguma função, por exemplo um botão de submit que deveria enviar o fomulário não vai funcionar -->
+            <!-- nesse caso o prevent evitará que a pagina seja recarregada. -->
             <input type="text" v-model="nome">
             <button type="submit">Enviar</button>
         </form>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue.js Example - Computed</title>
+</head>
+
+<body>
+    <div id="app">
+        <p>Original: {{ message }}</p>
+        <p>Invertido: {{ reversedMessage }}</p>
+        <input v-model="message" />
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.7.14/dist/vue.js"></script>
+    <script>
+        var app = new Vue({
+            el: '#app',
+            data: {
+                message: 'Hello Vue.js!'
+            },
+            computed: {
+                /* Propriedades computadas são basedas em outros elementos e enquanto esse elemento não muda, o valor da propriedade não é recalculado, alem de utilizarem cache,
+                ajudando na performance*/
+
+                /* Propriedade computada que inverte a string da mensagem */
+                /* enquanto a variavel message não for alterada, reversedMessage não será recalculado */
+                reversedMessage() {
+                    return this.message.split('').reverse().join('');
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>

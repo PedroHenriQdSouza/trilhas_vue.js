@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exemplo Watch e Computed</title>
+</head>
+
+<body>
+    <div id="app">
+        <p><strong>Nome Completo:</strong> {{ fullName }}</p>
+
+        <input v-model="firstName" placeholder="First Name" />
+        <input v-model="lastName" placeholder="Last Name" />
+
+        <p>{{ apiResponse }}</p>
+    </div>
+    <!--  -->
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.7.14/dist/vue.js"></script>
+    <script>
+        var app = new Vue({
+            el: '#app',
+            data: {
+                firstName: 'John',
+                lastName: 'Doe',
+                apiResponse: ''
+            },
+            computed: {
+                // Propriedade computada que retorna o nome completo
+                fullName() {
+                    return `${this.firstName} ${this.lastName}`;
+                }
+            },
+            /* watch são observadores que detectam mudanças em valores e executa alguma função. Diferente de computed, 
+            os observadores não usam cache e não precisam retornar nenhum valor. */
+            watch: {
+                /* Observa mudanças na propriedade computada 'fullName' e faz uma chamada fictícia */
+                fullName(newName) {
+                    this.fakeApiCall(newName);
+                }
+            },
+            methods: {
+                fakeApiCall(name) {
+                    /*  Simulando uma chamada de API e alterando apiResponse*/
+                    this.apiResponse = `Api chamada com o nome: ${name}`;
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>
