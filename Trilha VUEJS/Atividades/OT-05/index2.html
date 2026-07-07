@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Curso Vue js diretiva v-bind, atribuindo valor em class e style</title>
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+</head>
+<body>
+
+    <div id="app" style="padding: 20px;">
+        <h1>{{ titulo }}</h1>
+        
+        <button class="btn" v-bind:class="btnClassLimpar" v-bind:style="btnStyleLimpar">LIMPAR</button>
+        
+        <button class="btn" v-bind:class="btnClassEnviar" v-bind:style="btnStyleEnviar">ENVIAR</button>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.7.16/dist/vue.js"></script>
+    
+    <script>
+        var app = new Vue({
+            el: '#app',
+            data: {/* data armazena as configurações base que serão utilizadas atravez do vue, sendo chamadas se forem true. */
+                titulo: 'Vue JS',
+                
+                // --- CONFIGURAÇÕES DO BOTÃO LIMPAR ---
+                // Usa um OBJETO para a classe (só aplica se for true)
+                btnClassLimpar: {
+                    'btn-danger': true,  // Botão vermelho do Bootstrap
+                    'btn-sm': false      // Botão pequeno desativado
+                },
+                // Usa uma STRING simples para o estilo
+                btnStyleLimpar: 'margin: 5px; font-size: 50px;',
+                
+                // --- CONFIGURAÇÕES DO BOTÃO ENVIAR ---
+                // Usa um ARRAY misturando string e objeto para a classe
+                btnClassEnviar: [
+                    'btn-primary',       // Botão azul do Bootstrap
+                    { 'btn-lg': true }   // Botão grande ativado
+                ],
+                // Usa um ARRAY DE OBJETOS para os estilos inline
+                btnStyleEnviar: [
+                    { 'font-size': '20px' },
+                    { 'text-transform': 'lowercase' }
+                ],
+                
+            }
+        });
+    </script>
+
+</body>
+</html>
