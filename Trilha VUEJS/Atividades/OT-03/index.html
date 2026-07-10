@@ -4,62 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Atividade Vue JS - Formulário v-model</title>
-    <!-- <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f9f9f9;
-            padding: 20px;
-        }
+    <title>Formulário v-model</title>
 
-        .container {
-            background-color: white;
-            padding: 20px;
-            border-radius: 8px;
-            max-width: 400px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-        }
-
-        .form-group {
-            margin-bottom: 15px;
-        }
-
-        label {
-            display: block;
-            font-weight: bold;
-            margin-bottom: 5px;
-        }
-
-        input {
-            width: 90%;
-            padding: 8px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-        }
-
-        button {
-            background-color: #4CAF50;
-            color: white;
-            padding: 10px 15px;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-        }
-
-        button:hover {
-            background-color: #45a049;
-        }
-
-        .resultado {
-            margin-top: 20px;
-            padding-top: 20px;
-            border-top: 2px dashed #eee;
-        }
-
-        .resultado p {
-            color: #555;
-        }
-    </style> -->
 </head>
 
 <body>
@@ -100,10 +46,10 @@
             },
             methods: {
                 enviarFormulario() {
-                    // Ação disparada ao clicar no botão Enviar
+                    /* Ação disparada ao clicar no botão Enviar */
                     alert(`Dados enviados com sucesso!\n\nNome: ${this.nome}\nE-mail: ${this.email}`);
 
-                    // Opcional: Limpar os campos após o envio
+                    /* Opcional: Limpar os campos após o envio */
                     this.nome = '';
                     this.email = '';
                 }

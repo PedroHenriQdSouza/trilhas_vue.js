@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Atividade Vue.js - Saudação com v-bind</title>
+    <title>Atividade Vue.js - v-bind</title>
 
     <style>
         body {
@@ -30,9 +30,8 @@
 
         h1 {
             color: #41B883;
-            /* Verde padrão do Vue.js */
             margin-bottom: 20px;
-            cursor: help; /* Muda o cursor para indicar que há uma dica */
+
         }
 
         input {
@@ -54,7 +53,9 @@
 <body>
 
     <div id="app" class="container">
-        <h1 v-bind:title="dicaTitulo">{{ greeting }}, {{ nome }}!!</h1>
+        
+        <h1>{{ greeting }}, {{ nome }}!!</h1>
+        <h2 v-bind:title="dicaTitulo">Passe o cursor no texto</h2>
 
         <input type="text" v-model="nome" v-bind:placeholder="dicaInput">
     </div>
@@ -66,9 +67,8 @@
             el: '#app',
             data: {
                 greeting: 'Olá',
-                nome: 'Pedro', // Valor inicial sugerido na atividade
-                
-                // Novas variáveis criadas para serem usadas com o v-bind
+                nome: 'Pedro',
+
                 dicaTitulo: 'Passe o mouse aqui para ver esta mensagem dinâmica do Vue!',
                 dicaInput: 'Por favor, digite o seu nome'
             }
